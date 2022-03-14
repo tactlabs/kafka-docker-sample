@@ -12,6 +12,8 @@ Source:
 
     https://www.easytweaks.com/add-rows-list-dict-pandas-dataframes/
 
+    https://stackoverflow.com/questions/61226910/how-to-programmatically-check-if-kafka-broker-is-up-and-running-in-python
+
 pip:
     pip install kafka-python
     
@@ -19,6 +21,7 @@ pip:
 
 # Import necessary modules
 from kafka import KafkaConsumer
+import kafka
 import random
 import json
 import pandas as pd
@@ -57,6 +60,25 @@ def collect_data(cityname):
 
     pass
 
+def test2():
+
+    consumer = kafka.KafkaConsumer(bootstrap_servers=['18.221.155.99:9092'])
+    topics = consumer.topics()
+
+    if not topics: 
+        raise RuntimeError()
+
+    print('topics : ', topics)
+
+    consumer.subscribe("tone")
+
+    print(consumer)
+
+    for msg in consumer:
+        msg_value = msg.value
+        
+        print(msg_value)
+
 def startpy():
     
     # consumer = KafkaConsumer('ttwo')
@@ -87,7 +109,10 @@ def startpy():
 
 
 if __name__ == '__main__':
-    startpy()
+    
+    # startpy()
+
+    test2()
 
 '''
 Sample:

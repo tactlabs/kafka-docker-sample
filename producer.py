@@ -26,7 +26,7 @@ def startpy():
         "Waterloo"
     ]
     
-    producer = KafkaProducer(bootstrap_servers = 'localhost:9092')
+    producer = KafkaProducer(bootstrap_servers = '0.0.0.0:9092')
 
     for i in range(3):
         
