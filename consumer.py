@@ -59,17 +59,24 @@ def collect_data(cityname):
 
 def startpy():
     
-    consumer = KafkaConsumer('ttwo')
+    # consumer = KafkaConsumer('ttwo')
+    consumer = KafkaConsumer(
+        "tone",
+        bootstrap_server = '18.221.155.99:9092',
+
+    )
+
+    print(consumer)
 
     for msg in consumer:
         msg_value = msg.value
         
-        # print(msg_value)
+        print(msg_value)
 
         c_json = msg_value.decode('utf8').replace("'", '"')
 
-        # print(c_json)
-        # print(type(c_json))
+        print(c_json)
+        print(type(c_json))
 
         c_city_dict = json.loads(c_json)
 
