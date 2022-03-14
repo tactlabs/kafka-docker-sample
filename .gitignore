@@ -1,0 +1,8 @@
+paydayloan.csv
+
+__pycache__/
+
+static_consumer/*
+
+static_producer/*
+
