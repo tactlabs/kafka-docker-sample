@@ -62,7 +62,7 @@ def collect_data(cityname):
 
 def test2():
 
-    consumer = kafka.KafkaConsumer(bootstrap_servers=['18.221.155.99:9092'])
+    consumer = kafka.KafkaConsumer(bootstrap_servers=['0.0.0.0:9092'])
     topics = consumer.topics()
 
     if not topics: 
@@ -83,7 +83,7 @@ def startpy():
     
     # consumer = KafkaConsumer('ttwo')
     consumer = KafkaConsumer(
-        bootstrap_servers = '18.221.155.99:9092'
+        bootstrap_servers = '0.0.0.0:9092'
     )
 
     consumer.subscribe("tone")
