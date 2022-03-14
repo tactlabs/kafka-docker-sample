@@ -61,10 +61,10 @@ def startpy():
     
     # consumer = KafkaConsumer('ttwo')
     consumer = KafkaConsumer(
-        "tone",
-        bootstrap_server = '18.221.155.99:9092',
-
+        bootstrap_servers = '18.221.155.99:9092'
     )
+
+    consumer.subscribe("tone")
 
     print(consumer)
 
