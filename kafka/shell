@@ -1,2 +1,2 @@
-docker exec -it kafka \
+sudo docker exec -it kafka \
 bash

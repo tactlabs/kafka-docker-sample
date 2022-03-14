@@ -1,1 +1,1 @@
-docker logs kafka
+sudo docker logs kafka

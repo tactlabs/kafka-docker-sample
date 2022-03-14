@@ -9,5 +9,5 @@ if [[ -z "$2" ]]; then
     exit 0
 fi
 
-docker exec -it kafka \
+sudo docker exec -it kafka \
 kafka-configs --zookeeper zookeeper:2181 --alter --entity-type topics --entity-name $1 --add-config retention.ms=$2
