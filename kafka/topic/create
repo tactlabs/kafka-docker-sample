@@ -4,5 +4,5 @@ if [[ -z "$1" ]]; then
     exit 0
 fi
 
-docker exec -it kafka \
+sudo docker exec -it kafka \
 kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --if-not-exists --topic $1

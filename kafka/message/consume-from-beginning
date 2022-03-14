@@ -4,5 +4,5 @@ if [[ -z "$1" ]]; then
     exit 0
 fi
 
-docker exec -it kafka \
+sudo docker exec -it kafka \
 kafka-console-consumer --bootstrap-server localhost:9092 --topic $1 --from-beginning

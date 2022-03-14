@@ -26,7 +26,7 @@ def startpy():
         "Waterloo"
     ]
     
-    producer = KafkaProducer(bootstrap_servers = 'localhost:9092')
+    producer = KafkaProducer(bootstrap_servers = '0.0.0.0:9092')
 
     for i in range(3):
         
@@ -39,7 +39,7 @@ def startpy():
 
         str_1_encoded = bytes(json_dump, 'UTF-8')
 
-        producer.send('ttwo', str_1_encoded)
+        producer.send('tone', str_1_encoded)
 
         time.sleep(5)
 
