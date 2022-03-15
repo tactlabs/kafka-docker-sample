@@ -1,2 +1,4 @@
 kafka-python
 pandas
+beautifulsoup4
+lxml
