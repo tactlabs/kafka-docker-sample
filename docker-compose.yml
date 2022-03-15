@@ -57,3 +57,13 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+  # kafdrop:
+  #   image: obsidiandynamics/kafdrop
+  #   restart: "no"
+  #   ports:
+  #     - "9000:9000"
+  #   environment:
+  #     KAFKA_BROKERCONNECT: "kafka:19091"
+  #   depends_on:
+  #     - kafka
