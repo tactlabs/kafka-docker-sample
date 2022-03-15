@@ -27,7 +27,7 @@ driver = webdriver.Chrome(PATH)
 # chrome_driver_binary = PATH
 # driver = webdriver.Chrome(chrome_driver_binary, chrome_options=options)
 
-def startpy():
+def get_info(url):
 
     # driver.get("https://spaceishare.com/Listings")
     # element = driver.find_elements_by_class_name("search-box-bg")
@@ -36,7 +36,7 @@ def startpy():
     #     print(link)
 
 
-    driver.get("https://en.wikipedia.org/wiki/Canadian_Tire")
+    driver.get(url)
 
     info_dict =  {}
 
@@ -84,7 +84,16 @@ def startpy():
     finally:
         driver.quit()
 
-    print(info_dict)
+    # print(info_dict)
+
+    return info_dict
+
+def startpy():
+
+    url = "https://en.wikipedia.org/wiki/Canadian_Tire"
+    content = get_info(url)
+
+    print(content)
         
 if __name__ == '__main__':
     startpy()
