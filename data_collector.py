@@ -18,9 +18,12 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time 
+import unicodedata
 
-PATH = "/Users/suresh/tact/libs/chromedriver"
-driver = webdriver.Chrome(PATH)
+# Local import
+from env_reader import *
+
+driver = webdriver.Chrome(CHROME_DRIVER_PATH)
 
 # options = webdriver.ChromeOptions()
 # options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -70,7 +73,19 @@ def get_info(url):
 
                 # print(_td.text)
 
-                info_dict[_th.text] = _td.text
+                _key = _th.text
+                _value = _td.text
+
+                # _key = _key.encode('ascii', 'ignore')
+                # _value = _value.encode('ascii', 'ignore')
+
+                _key = unicodedata.normalize('NFKD', _key).encode('ascii', 'ignore')
+                _value = unicodedata.normalize('NFKD', _value).encode('ascii', 'ignore')
+
+                _key = _key.decode('utf-8')
+                _value = _value.decode('utf-8')
+
+                info_dict[_key] = _value
 
             except Exception as err:
                 # print('Error : ')
@@ -90,7 +105,7 @@ def get_info(url):
 
 def startpy():
 
-    url = "https://en.wikipedia.org/wiki/Canadian_Tire"
+    url = "https://wiki2.org/en/Canadian_Tire"
     content = get_info(url)
 
     print(content)

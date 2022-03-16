@@ -2,3 +2,5 @@ kafka-python
 pandas
 beautifulsoup4
 lxml
+python-dotenv
+selenium
